@@ -16,7 +16,7 @@ detector::detector()
             if(((x*x+y*y)<(core_s*core_s/4./rk)))
                 core_kernel.at<char>(Point(i,j))=255;
             if((x*x+y*y)<core_s*core_s/7/rk)//6//internal
-                core_kernel.at<char>(Point(i,j))=0;
+                core_kernel.at<char>(Point(i,j))=10;
             //            qDebug()<<kernel.at<float>(Point(i,j));
         }
 
