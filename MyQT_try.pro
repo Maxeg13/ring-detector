@@ -1,5 +1,5 @@
 QT -= gui
-TARGET = OpenCV_Template
+TARGET = video_writer
 CONFIG += c++11 console
 CONFIG -= app_bundle
 TEMPLATE = app

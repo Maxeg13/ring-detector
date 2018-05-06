@@ -4,19 +4,22 @@ detector::detector()
 {
     kernel_ind=0;
     max=0;
-    core_s=120;
+    core_s=80;
     core_kernel = Mat::zeros( core_s, core_s, CV_8U );
     float rk=1.5;
+    float rr1=2.6;
     int i,j;
     for( i=0;i<core_s;i++)
         for( j=0;j<core_s;j++)
         {
             float x=i-core_s/2;
             float y=j-core_s/2;
-            if(((x*x+y*y)<(core_s*core_s/4./rk)))
-                core_kernel.at<char>(Point(i,j))=255;
-            if((x*x+y*y)<core_s*core_s/7/rk)//6//internal
-                core_kernel.at<char>(Point(i,j))=10;
+            if(((x*x+y*y)>(core_s*core_s/(2*2)/rk)))//extern
+                core_kernel.at<char>(Point(i,j))=0;//70
+            else if((x*x+y*y)<core_s*core_s/(rr1*rr1)/rk)//6//internal
+                core_kernel.at<char>(Point(i,j))=0;//50
+            else
+                core_kernel.at<char>(Point(i,j))=255;//160
             //            qDebug()<<kernel.at<float>(Point(i,j));
         }
 
