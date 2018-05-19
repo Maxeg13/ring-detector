@@ -14,6 +14,8 @@ public:
     int dst_s;
     int ind_1, ind_2, kernel_ind;
     float max;
+    Mat mask[det_N];
+    Mat core_mask;
     Mat out_std;
     Mat core_kernel;
     Mat kernel[det_N];
